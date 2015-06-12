@@ -17,5 +17,30 @@ router.get('/', function(req, res, next) {
 		   });
 });
 
+router.post('/:id/like', function(req, res, next){
+	var id = req.params.id;
+
+	Profile.update({
+		_id: id
+	}, {
+		$inc: { likes: 1 }
+	}, function(err, profile){
+		if (err) console.log(err);
+		res.json(true);
+	});
+});
+
+router.post('/:id/dislike', function(req, res, next){
+	var id = req.params.id;
+
+	Profile.update({
+		_id: id
+	}, {
+		$inc: { likes: -1 }
+	}, function(err, profile){
+		if (err) console.log(err);
+		res.json(true);
+	});
+});
 
 module.exports = router;
