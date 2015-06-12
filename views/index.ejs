@@ -4,6 +4,7 @@
     <title>Jhaocheng Wu Profile</title>
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
   </head>
   <body>
 	
@@ -21,22 +22,28 @@
 	</nav>
 	<div class="container waterfall">
 		<div class="row">
-		    <div class="col-xs-6 col-sm-4 col-md-3 list-group">
-				<div class="thumbnail">
-			        <img src="http://i.imgur.com/KzdKvYZ.jpg">
-			        <div class="caption">
-			        	<h3>Profile picture</h3>
-			        	<p>Hi, my name is Andy Wu</p>
-			        	<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-			        </div>
+			<% profiles.forEach(function(profile) { %>
+				<div class="col-xs-6 col-sm-4 col-md-3 list-group">
+					<div class="thumbnail">
+				        <img src="<%= profile.pic %>">
+				        <div class="caption">
+				        	<h3><%= profile.title %></h3>
+				        	<p><%= profile.paragraph %></p>
+				        	<p>
+					        	<a href="#" class="btn btn-primary like" role="button" data-id="<%=profile._id %>">
+					        	<i class="fa fa-heart-o"></i><%= profile.likes %> Likes
+					        	</a>
+				        	</p>
+				        </div>
+				    </div>
 			    </div>
-		    </div>
-		    
+			<% }) %>
 		</div>
 	</div>
 
 	<script src='/javascripts/jquery-2.1.4.min.js'></script>
   	<script src='/javascripts/bootstrap.min.js'></script>
   	<script src='/javascripts/masonry.pkgd.min.js'></script>
+  	<script src='/javascripts/client.js'></script>
   </body>
 </html>
