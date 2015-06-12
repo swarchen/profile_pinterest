@@ -1,8 +1,46 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(233, 233, 233) !important;
+  background-color: rgb(233, 233, 233) ;
 }
 
 a {
   color: #00B7FF;
 }
+
+.wu-container{
+	padding-left: 5px;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #C7C7C7;
+    -moz-box-shadow: 0 8px 6px -6px #C7C7C7;
+    box-shadow: 0 8px 6px -6px #C7C7C7;
+
+    /* the rest of your styling */
+}
+
+input{
+	background-color: #E9E9E9;
+}
+
+.thumbnail{
+	overflow: hidden ;
+	border-radius: 17px ;
+	padding: 0 ;
+	-webkit-box-shadow: 0 8px 6px -6px #C7C7C7;
+    -moz-box-shadow: 0 8px 6px -6px #C7C7C7;
+    box-shadow: 0 8px 6px -6px #C7C7C7;
+}
+
+body > div > .col-md-3:nth-child(4n+1){
+	clear: both;
+}
+
+.profile{
+	display: inline-block;
+}
+
+.waterfall{
+	padding-top : 55px;
+}
+
