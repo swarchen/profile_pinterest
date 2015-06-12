@@ -30,8 +30,10 @@
 				        	<h3><%= profile.title %></h3>
 				        	<p><%= profile.paragraph %></p>
 				        	<p>
-					        	<a href="#" class="btn btn-primary like" role="button" data-id="<%=profile._id %>">
-					        	<i class="fa fa-heart-o"></i><%= profile.likes %> Likes
+					        	<a id="like"class="btn btn-danger" role="button" data-id="<%=profile._id %>">
+					        	<i class="fa fa-heart-o"></i>
+					        		<span class="count"><%= profile.likes %></span> 
+					        	 Likes
 					        	</a>
 				        	</p>
 				        </div>
