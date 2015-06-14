@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	//like button +/- functions
 	$('.btn').click(function(){
 		var url = './' + $(this).data('id') + '/' + $(this).attr('id');
@@ -37,8 +36,28 @@ $(document).ready(function(){
 	    if($(window).scrollTop() == $(document).height() - $(window).height())
 	    {
 	        $('div#loadmoreajaxloader').show();
-	        
+	        $.ajax({
+		        url: '/getmore',
+		        dataType: 'JSON',
+		        type: 'GET',
+		        success: function(profiles){
+		        	if(profiles){
+		        		profiles.forEach(function(profile){
+			        		var $items = $('<div class="grid-item"><div class="thumbnail"><a href="'+ profile.pic +'" data-lightbox="'+ profile.title +'" data-title="'+ profile.title +'" ><img src="'+ profile.pic +'"></a><div class="caption"><h3>'+ profile.title +'</h3><p>'+ profile.paragraph +'</p><p><a id="like"class="btn btn-danger" role="button" data-id="'+ profile.id +'"><i class="fa fa-heart-o"></i><span class="count">'+ profile.likes +'</span>Likes</a></p></div></div></div>');
+			        		$('.grid').append( $items )
+			        		.masonry( 'appended', $items );
+			        	});
+			        	$('div#loadmoreajaxloader').hide();
+		        	}else{
+		        		$('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+		        	}
+		        	
+		        }
+		        
+		    });
 	    }
 	});
 
 })
+
+
