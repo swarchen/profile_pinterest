@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Jhaocheng Wu Profile</title>
+    <link rel="shortcut icon" href="/img/w.ico">
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
     <link href='/stylesheets/lightbox.css' rel='stylesheet'>
@@ -10,22 +11,19 @@
   <body>
 	
 	<nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
-	  <div class="wu_container">
-	   <form class="navbar-form navbar-left" role="search">
-	   		<div class="row">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Try to search 'videos'">
-				</div>
-				<button type="submit" class="btn btn-default">Search</button>
-			</div>
-		</form>
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">
+	        <img alt="Brand" src="...">
+	      </a>
+	    </div>
+	    <p style="line-height: 20px">Hi, my name is JhaoCheng Wu</p>
 	  </div>
 	</nav>
 	<div class="container-fluid waterfall">
-		<div class="row">
-		<div class="col-xs-12">
+		<div class="grid">
 			<% profiles.forEach(function(profile) { %>
-				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-15 list-group">
+				<div class="grid-item">
 					<div class="thumbnail">
 						<a href="<%= profile.pic %>" data-lightbox="<%= profile.title %>" data-title="<%= profile.title %>" ><img src="<%= profile.pic %>"></a>
 				        <div class="caption">
@@ -43,7 +41,7 @@
 			    </div>
 			<% }) %>
 		</div>
-		</div>
+		<div id="loadmoreajaxloader" style="display:none;"><center><img src="/img/3.gif" /></center></div>
 	</div>
 
 	<script src='/javascripts/jquery-2.1.4.min.js'></script>
@@ -51,5 +49,6 @@
   	<script src='/javascripts/masonry.pkgd.min.js'></script>
   	<script src='/javascripts/client.js'></script>
   	<script src='/javascripts/lightbox.min.js'></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
   </body>
 </html>

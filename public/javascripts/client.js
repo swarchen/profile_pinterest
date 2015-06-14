@@ -23,6 +23,20 @@ $(document).ready(function(){
 
 	});
 
+	$('.grid').masonry({
+    	itemSelector: '.grid-item',
+    	columnWidth: 236,
+    	gutter: 10,
+    	isFitWidth: true
+  	});
 
+  	$(window).scroll(function()
+	{
+	    if($(window).scrollTop() == $(document).height() - $(window).height())
+	    {
+	        $('div#loadmoreajaxloader').show();
+	        
+	    }
+	});
 
 })

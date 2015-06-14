@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 		   .sort({
 		   		likes: -1
 		   })
+		   .limit(10)
 		   .exec(function(err, profiles) {
 		   		if(err) console.log(err);
 
