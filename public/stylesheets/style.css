@@ -3,6 +3,17 @@ body {
   background-color: rgb(233, 233, 233) ;
 }
 
+.navbar p{
+	display: inline-block;
+  margin: 16px 0 0 0;
+  padding: 0;
+  font-size: 26px;
+}
+
+p{
+	color: #717171;
+}
+
 a {
   color: #00B7FF;
 }
@@ -15,6 +26,8 @@ a {
     -webkit-box-shadow: 0 8px 6px -6px #C7C7C7;
     -moz-box-shadow: 0 8px 6px -6px #C7C7C7;
     box-shadow: 0 8px 6px -6px #C7C7C7;
+    background-color: white;
+
 
     /* the rest of your styling */
 }
@@ -44,32 +57,9 @@ body > div > .col-md-3:nth-child(4n+1){
 	padding-top : 55px;
 }
 
-.col-xs-15,
-.col-sm-15,
-.col-md-15,
-.col-lg-15 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 5px;
-    padding-left: 5px;
+.grid{
+	margin-left: auto;
+	margin-right: auto;
 }
 
-@media (min-width: 768px) {
-.col-sm-15 {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 992px) {
-    .col-md-15 {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 1200px) {
-    .col-lg-15 {
-        width: 20%;
-        float: left;
-    }
-}
-
+.grid-item { width: 236px; }

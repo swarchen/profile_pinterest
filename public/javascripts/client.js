@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-
+	//like button +/- functions
 	$('.btn').click(function(){
 		var url = './' + $(this).data('id') + '/' + $(this).attr('id');
 		if ($(this).attr('id') === 'like'){
@@ -23,6 +23,22 @@ $(document).ready(function(){
 
 	});
 
+	//let waterfall page be activate
+	$('.grid').masonry({
+    	itemSelector: '.grid-item',
+    	columnWidth: 236,
+    	gutter: 10,
+    	isFitWidth: true
+  	});
 
+	//scroll to ajax more content
+  	$(window).scroll(function()
+	{
+	    if($(window).scrollTop() == $(document).height() - $(window).height())
+	    {
+	        $('div#loadmoreajaxloader').show();
+	        
+	    }
+	});
 
 })
