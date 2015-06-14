@@ -1,10 +1,19 @@
 $(document).ready(function(){
 	
 
-	$('.like').click(function(){
-		var url = './' + $(this).data('id') + '/like';
-		$(this).removeClass("like").addClass('dislike');
-		console.log(url + 'like');
+	$('.btn').click(function(){
+		var url = './' + $(this).data('id') + '/' + $(this).attr('id');
+		if ($(this).attr('id') === 'like'){
+			$(this).attr('id', 'dislike');
+			$(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
+			$(this).find('span').text(Number($(this).find('span').text()) + 1);
+		}
+		else{
+			$(this).attr('id', 'like');
+			$(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
+			$(this).find('span').text(Number($(this).find('span').text()) - 1)
+		}
+		console.log(url);
 		$.ajax({
 			method: 'POST',
 			url: url
@@ -14,18 +23,6 @@ $(document).ready(function(){
 
 	});
 
-	$('.dislike').click(function(){
-		var url = './' + $(this).data('id') + '/dislike';
-		$(this).removeClass("dislike").addClass('like');
-		console.log(url + 'dislike');
-		$.ajax({
-			method: 'POST',
-			url: url
-		}).done(function(res) {
-			if (!res) console.log('error');
-		});
-
-	});
 
 
 })
