@@ -3,9 +3,9 @@
   <head>
     <title>Jhaocheng Wu Profile</title>
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
-    <link rel='stylesheet' href='/stylesheets/style.css'>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
     <link href='/stylesheets/lightbox.css' rel='stylesheet'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
   <body>
 	
@@ -21,12 +21,13 @@
 		</form>
 	  </div>
 	</nav>
-	<div class="container waterfall">
+	<div class="container-fluid waterfall">
 		<div class="row">
+		<div class="col-xs-12">
 			<% profiles.forEach(function(profile) { %>
-				<div class="col-xs-6 col-sm-4 col-md-3 list-group">
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-15 list-group">
 					<div class="thumbnail">
-						<a href="<%= profile.pic %>" data-lightbox="<%= profile.title %>" data-title="<%= profile.title %>"><img src="<%= profile.pic %>"></a>
+						<a href="<%= profile.pic %>" data-lightbox="<%= profile.title %>" data-title="<%= profile.title %>" ><img src="<%= profile.pic %>"></a>
 				        <div class="caption">
 				        	<h3><%= profile.title %></h3>
 				        	<p><%= profile.paragraph %></p>
@@ -41,6 +42,7 @@
 				    </div>
 			    </div>
 			<% }) %>
+		</div>
 		</div>
 	</div>
 
