@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Profile = require('../model').Profile;
-var count = 1;
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	Profile.find()
@@ -18,17 +17,17 @@ router.get('/', function(req, res, next) {
 		   });
 });
 
-router.get('/getmore', function(req, res, next) {
+router.post('/getmore', function(req, res, next) {
+	var count = req.body.count;
 	Profile.find()
 		   .sort({
 		   		likes: -1
 		   })
-		   .skip( count * 5 )
+		   .skip( 10 + count * 5 )
 		   .limit(5)
 		   .exec(function(err, profiles) {
 		   		if(err) console.log(err);
 		   		count += 1;
-		   		console.log(count);
 		   		res.json(profiles);
 		   });
 });
