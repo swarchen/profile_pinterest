@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var count = 0;
 	var offset = 250;
     var duration = 300;
+    var isLoadingData = false;
 	$(document).on('click', '.btn', function(){
 		var url = './' + $(this).data('id') + '/' + $(this).attr('id');
 		if ($(this).attr('id') === 'like'){
@@ -32,8 +33,9 @@ $(document).ready(function(){
 	//scroll to ajax more content
   	$(window).scroll(function()
 	{
-	    if($(window).scrollTop() == $(document).height() - $(window).height() && count !== "finish")
+	    if($(window).scrollTop() == $(document).height() - $(window).height() && count !== "finish" && !isLoadingData)
 	    {
+	    	isLoadingData = true;
 	        $('div#loadmoreajaxloader').show();
 	        $.ajax({
 		        url: '/getmore',
@@ -51,6 +53,8 @@ $(document).ready(function(){
 			        	count += 1;
 			        	//let waterfall page be activate
 						layout();
+						//prevent double loaded data
+						isLoadingData = false;
 		        	}else{
 		        		count = "finish";
 		        		$('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
