@@ -86,7 +86,6 @@ function layout(){
 	imagesLoaded( $('.grid'),function (){
 		$('.grid').masonry({
 	    	itemSelector: '.grid-item',
-	    	columnWidth: 236,
 	    	gutter: 10,
 	    	isFitWidth: true
 	  	});
